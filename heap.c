@@ -1,3 +1,6 @@
+/*
+ * 本源码是针对我的CSDN中的文章《对”堆”的理解》中的代码实现，连接http://blog.csdn.net/socho/article/details/51565498
+ */
 #include <stdio.h>
 #define N 12
 void printHeap(int A[]){
