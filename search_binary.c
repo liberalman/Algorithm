@@ -2,7 +2,8 @@
  * @file search_binary.c
  * 详情请看 http://blog.csdn.net/socho/article/details/51684422
  */
-#include #define N 10
+#include <stdio.h>
+#define N 10
 void printA(int A[], char n){
     int i = 0;
     for (i = 0; i < n; i++)
