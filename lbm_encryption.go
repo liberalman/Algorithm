@@ -8,6 +8,7 @@ import (
     "fmt"
     "flag"
     "os"
+    "io/ioutil"
     //"strings"
 )
 
@@ -19,8 +20,10 @@ func main() {
 
     var key string
     var src string
+    var file string
     flag.StringVar(&key, "k", "", "Key")
     flag.StringVar(&src, "s", "", "Source string")
+    flag.StringVar(&file, "f", "", "Filenaame")
     isDecry := flag.Bool("d", false, "Is Decrypt String? in default, it will encry string, if it is true, will decry")
     help := flag.Bool("h", false, "help")
     flag.Parse()
@@ -29,8 +32,17 @@ func main() {
     var err error
 
     if *help {
-        fmt.Print("-d in default,it will encrypt stirng,if you use this option, it will decript.\n-k key\n-s source string\n")
+        fmt.Print("-d in default,it will encrypt stirng,if you use this option, it will decript.\n-k key\n-s source string\n-f filename, use a file.")
         return
+    }
+
+    if "" != file {
+        var fileBuff []byte
+        fileBuff, err = ioutil.ReadFile(file)
+        if err != nil {
+            panic(err)
+        }
+        src = string(fileBuff)
     }
 
     if *isDecry {
