@@ -45,3 +45,24 @@ $ ./lbm_encryption -d -k 1234567890123456 -s mm8DtT7ekMpPl4rFmTEui0FOjqhS2OKD0Su
 libertyblog是一个有思想的博客站点
 ```
 可以看到参数多增加了一个-d，代表这是解密操作。-s输入的待解密字符串也是一个base64编码后的串。
+
+#### lbm_cryptofile
+也是加解密用，不过这个只支持文件，而且是直接修改源文件，写入加密后的文件。文件限制大小2M。
+```
+go build lbm_cryptofile.go
+```
+加密
+```
+./lbm_cryptofile encrypt password ./test.txt
+```
+- 第一个参数 encrypt，代表这是加密行为。
+- 第二个参数 密码明文。
+- 第三个参数 文件路径。
+
+解密
+```
+./lbm_cryptofile decrypt password ./test.txt
+```
+- 第一个参数 decrypt，代表这是解密行为。
+- 第二个参数 密码明文。
+- 第三个参数 文件路径。
